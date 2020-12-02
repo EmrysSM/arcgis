@@ -1,5 +1,12 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "jsxFactory": "tsx",
+    "preserveConstEnums": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "importHelpers": true,
     "target": "es5",
     "lib": [
       "dom",

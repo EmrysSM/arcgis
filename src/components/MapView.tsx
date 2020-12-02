@@ -1,5 +1,22 @@
 import React, { useEffect, useRef } from 'react';
 import { loadModules } from 'esri-loader';
+import Widget from 'esri/widgets/Widget';
+import { property } from 'esri/core/accessorSupport/decorators';
+import { renderable } from 'esri/widgets/support/widget';
+
+class HelloWorld extends Widget {
+  @property()
+  @renderable()
+  firstName: string = "John";
+
+  @property()
+  @renderable()
+  lastName: string = "Smith";
+
+  @property()
+  @renderable()
+  emphasized: boolean = false;
+}
 
 const WebMapView = () => {
     const mapRef = useRef<HTMLInputElement>(null);
