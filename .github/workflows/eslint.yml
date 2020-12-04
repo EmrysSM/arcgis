@@ -1,0 +1,18 @@
+on: pull_request
+
+jobs:
+  eslint:
+    name: eslint
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: install node v10
+      uses: actions/setup-node@v1
+      with:
+        node-version: 10.15.0
+    - name: yarn install
+      run: yarn install
+    - name: run eslint
+      run: yarn run eslint . --no-fix
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
