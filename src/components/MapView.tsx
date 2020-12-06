@@ -65,11 +65,19 @@ const WebMapView = () => {
             }
           };
 
+          var popupTrailheads = {
+            title: "{TRL_NAME}",
+            content:
+              "<b>City:</b> {CITY_JUR}<br><b>Cross Street:</b> {X_STREET}<br><b>Parking:</b> {PARKING}<br><b>Elevation:</b> {ELEV_FT} ft"
+          }
+
           var trailheadsLayer = new FeatureLayer({
             url:
               "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0",
               renderer: trailheadsRenderer,
-              labelingInfo: [trailheadsLabels]
+              labelingInfo: [trailheadsLabels],
+              outFields: ["TRL_NAME", "CITY_JUR", "X_STREET", "PARKING", "ELEV_FT"],
+              popupTemplate: popupTrailheads 
           });
           
           map.add(trailheadsLayer);
